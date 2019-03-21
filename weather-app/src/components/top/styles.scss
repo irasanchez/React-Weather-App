@@ -1,3 +1,23 @@
 .top-section {
   display: flex;
+  flex-direction: column;
+  font-family: Oxygen, sans-serif;
+  align-items: center;
+  background-color: #445a71;
+  height: 100%;
+  width: 100%;
+
+  .title {
+    color: #fff;
+    font-size: 22px;
+  }
+
+  .weather-container {
+    display: flex;
+    flex-direction: column;
+    .inner-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }
