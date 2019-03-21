@@ -18,12 +18,7 @@ body,
   .main-container {
     min-width: 600px;
     height: 300px;
-    display: flex;
-    flex-direction: column;
     border: 1px solid #999;
     border-radius: 3px;
-    .bottom-section {
-      flex: 0 0 50%;
-    }
   }
 }
