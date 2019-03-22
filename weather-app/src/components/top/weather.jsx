@@ -1,5 +1,4 @@
 import React from "react";
-import SunImg from "./../../resources/sun.png";
 
 export default class Weather extends React.Component {
   constructor(props) {
@@ -7,16 +6,18 @@ export default class Weather extends React.Component {
   }
 
   render() {
+    const { location, temp_f, isDay, text, iconURL } = this.props;
+
     return (
       <div className="weather-container">
-        <div className="header">Location Name</div>
+        <div className="header">{location}</div>
         <div className="inner-container">
           <div className="image">
-            <img src={SunImg} alt="sun" />
+            <img src={iconURL} alt="sun" />
           </div>
-          <div className="current-weather">60°</div>
+          <div className="current-weather">{temp_f}°F</div>
         </div>
-        <div className="footer">sunny</div>
+        <div className="footer">{text}</div>
       </div>
     );
   }
