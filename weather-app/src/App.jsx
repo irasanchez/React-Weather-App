@@ -6,6 +6,12 @@ import TopSection from "./components/top";
 import BottomSection from "./components/bottom";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {}
+
   render() {
     return (
       <div className="App">
