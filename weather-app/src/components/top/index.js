@@ -13,6 +13,7 @@ export default class TopSection extends React.Component {
       <div className="top-section">
         <div className="title">Weather</div>
         <Weather />
+        <button className="btn btn-select-location">Select Location</button>
       </div>
     );
   }
