@@ -23,7 +23,6 @@ export default class TopSection extends React.Component {
       <div className="top-section">
         <div className="title">Weather</div>
         <Weather {...this.props} />
-        {/* source: https://github.com/FezVrasta/react-popper */}
         <Manager>
           <Reference>
             {({ ref }) => (
@@ -45,7 +44,16 @@ export default class TopSection extends React.Component {
                   style={style}
                   data-placement={placement}
                 >
-                  Popper element
+                  <div className="form-container">
+                    <label htmlFor="location-name" />
+                    Location Name
+                  </div>{" "}
+                  <input
+                    id="location-name"
+                    type="text"
+                    placeholder="City Name"
+                  />
+                  <button className="btn btn-select-location">Select</button>
                   <div ref={arrowProps.ref} style={arrowProps.style} />
                 </div>
               )

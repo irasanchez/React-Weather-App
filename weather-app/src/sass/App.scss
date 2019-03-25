@@ -38,11 +38,26 @@ body,
   top: -52px;
   left: -29px;
   transform: translate3d(487px, 177px, 0px);
-  width: 11em;
-  height: 4em;
+  // width: 12em;
+  // height: 5em;
   display: flex;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0px 0px 5px 2px rgba(15, 15, 15, 0.2);
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+.form-container {
+  padding: 6px;
+  width: 100%;
+  label {
+    font-size: 11px;
+  }
+  input {
+    border-radius: 2px;
+    border: 1px solid rgba(15, 15, 15, 0.2);
+  }
 }
