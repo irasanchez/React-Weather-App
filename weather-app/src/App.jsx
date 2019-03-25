@@ -66,3 +66,5 @@ class App extends Component {
 }
 
 export default App;
+
+// continue here: https://youtu.be/cdBvSlVCOXw?t=3631
