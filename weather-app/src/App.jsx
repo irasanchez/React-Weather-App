@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import logo from "./logo.svg";
 import "./sass/App.scss";
 
 import TopSection from "./components/top";
@@ -13,14 +12,14 @@ class App extends Component {
     super(props);
     this.state = {
       cityName: "Phoenix",
-      forecastDays: 5,
+      numOfForecastDays: 5,
       isLoading: true
     };
   }
 
   updateWeather = () => {
-    const { cityName, forecastDays } = this.state;
-    const URL = `http://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY} &q=${cityName} &days=${forecastDays}`;
+    const { cityName, numOfForecastDays } = this.state;
+    const URL = `http://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY} &q=${cityName} &days=${numOfForecastDays}`;
     axios
       .get(URL)
       .then(res => {
@@ -32,7 +31,8 @@ class App extends Component {
           temp_f: data.current.temp_f,
           isDay: data.current.is_day,
           text: data.current.condition.text,
-          iconURL: data.current.condition.icon
+          iconURL: data.current.condition.icon,
+          forecastDays: data.forecast.forecastday
         });
       })
       .catch(error => console.error("Cannot get data from API", error));
@@ -45,13 +45,19 @@ class App extends Component {
 
     eventEmitter.on("updateWeather", data => {
       this.setState({ cityName: data }, () => this.updateWeather());
-
-      console.log("LocationName:", data);
     });
   }
 
   render() {
-    const { isLoading, cityName, temp_f, isDay, text, iconURL } = this.state;
+    const {
+      isLoading,
+      cityName,
+      temp_f,
+      isDay,
+      text,
+      iconURL,
+      forecastDays
+    } = this.state;
     return (
       <div className="App">
         <div className="main-container">
@@ -70,7 +76,7 @@ class App extends Component {
           )}
 
           <div className="bottom-section">
-            <BottomSection />
+            <BottomSection forecastDays={forecastDays} />
           </div>
         </div>
       </div>
