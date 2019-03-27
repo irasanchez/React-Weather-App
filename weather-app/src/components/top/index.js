@@ -17,8 +17,21 @@ export default class TopSection extends React.Component {
     }));
   };
 
+  onLocationNameChange = e => {
+    this.setState({ locationName: e.target.value });
+  };
+
+  onSelectCity = () => {
+    const { locationName } = this.state;
+    const { eventEmitter } = this.props;
+
+    eventEmitter.emit("updateWeather", locationName);
+  };
+
   render() {
     const { isSelectLocationOpen } = this.state;
+    const eventEmitter = this.props;
+
     return (
       <div className="top-section">
         <div className="title">Weather</div>
@@ -52,8 +65,14 @@ export default class TopSection extends React.Component {
                     id="location-name"
                     type="text"
                     placeholder="City Name"
+                    onChange={this.onLocationNameChange}
                   />
-                  <button className="btn btn-select-location">Select</button>
+                  <button
+                    className="btn btn-select-location"
+                    onClick={this.onSelectCity}
+                  >
+                    Select
+                  </button>
                   <div ref={arrowProps.ref} style={arrowProps.style} />
                 </div>
               )
