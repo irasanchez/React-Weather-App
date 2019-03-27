@@ -18,7 +18,9 @@ export default class TopSection extends React.Component {
   };
 
   onLocationNameChange = e => {
-    this.setState({ locationName: e.target.value });
+    this.setState({
+      locationName: e.target.value
+    });
   };
 
   onSelectCity = () => {
@@ -26,6 +28,7 @@ export default class TopSection extends React.Component {
     const { eventEmitter } = this.props;
 
     eventEmitter.emit("updateWeather", locationName);
+    this.setState({ isSelectLocationOpen: false });
   };
 
   render() {
@@ -68,6 +71,7 @@ export default class TopSection extends React.Component {
                     onChange={this.onLocationNameChange}
                   />
                   <button
+                    type="submit"
                     className="btn btn-select-location"
                     onClick={this.onSelectCity}
                   >
