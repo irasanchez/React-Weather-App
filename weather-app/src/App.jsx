@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       cityName: "Phoenix",
-      numOfForecastDays: 5,
+      numOfForecastDays: 4,
       isLoading: true
     };
   }

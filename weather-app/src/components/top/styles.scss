@@ -10,19 +10,18 @@
   .title {
     color: #fff;
     font-size: 16px;
-    margin-top: 6px;
+    margin: 20px;
   }
 }
 
 .weather-container {
   margin-top: 1.2em;
   color: #fff;
+
   .header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    font-size: 13px;
   }
   .inner-container {
     display: flex;
@@ -34,7 +33,13 @@
 
     .current-weather {
       height: fit-content;
-      font-size: 23px;
+
+      span {
+        font-size: 50px;
+        sup {
+          font-size: 40%;
+        }
+      }
     }
 
     .image {
@@ -50,7 +55,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-size: 13px;
   }
 }
 
@@ -60,4 +64,5 @@
   font-family: Roboto, sans-serif;
   border-radius: 5px;
   color: #222;
+  margin: 50px;
 }
